@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The SOC Theme &mdash; MicroCider 0.1beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MicroCider 0.1beta documentation" href="index.html"/>
+        <link rel="next" title="Settings and Config Files" href="configs.html"/>
+        <link rel="prev" title="Microsite Content" href="content.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MicroCider
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to MicroCider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="need_to_know.html">Tools and Background Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Microsite Content</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The SOC Theme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#static-contents"><code class="docutils literal"><span class="pre">static</span></code> Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#css"><code class="docutils literal"><span class="pre">css</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#js"><code class="docutils literal"><span class="pre">js</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#grouped-categories"><code class="docutils literal"><span class="pre">grouped_categories</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#figures-js"><code class="docutils literal"><span class="pre">figures.js</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Settings and Config Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Making Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps.html">Working with Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_microsite.html">Making a New Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">How to Publish Your Microsite</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MicroCider</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>The SOC Theme</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/soc_theme.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-soc-theme">
+<span id="soc-theme"></span><h1>The SOC Theme<a class="headerlink" href="#the-soc-theme" title="Permalink to this headline">¶</a></h1>
+<p>Most of the MicroCider secret sauce is in the SOC theme, which is a <a class="reference external" href="http://docs.getpelican.com/en/3.6.3/themes.html">Pelican theme</a>. As documented in the Pelican documentation, the SOC folder is split into two subfolders: <code class="docutils literal"><span class="pre">static</span></code>, which contains static assets like stylesheets and scripts, and <code class="docutils literal"><span class="pre">templates</span></code>, which contains Jinja2 templates for displaying microsite content.</p>
+<div class="section" id="static-contents">
+<h2><code class="docutils literal"><span class="pre">static</span></code> Contents<a class="headerlink" href="#static-contents" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">static</span></code> folder contains CSS files, javascript files, and web fonts.</p>
+<div class="section" id="css">
+<h3><code class="docutils literal"><span class="pre">css</span></code><a class="headerlink" href="#css" title="Permalink to this headline">¶</a></h3>
+<p>MicroCider uses <a class="reference external" href="http://sass-lang.com/">Sass</a> (i.e. &#8220;syntactically awesome style sheets&#8221;) to split CSS into several components (i.e. <em>`partials &lt;http://sass-lang.com/guide#topic-4&gt;`_</em>). The stylesheets are written in SCSS, which is an extension of CSS that allows for things like variables and calculations. For example, we create colors as variables, and those variables are used in a number of style declarations, so we can then change the color scheme by just changing how we set those variables, and the changes will be propogated throughout.</p>
+<p>Note that wwe use the <a class="reference external" href="https://github.com/getpelican/pelican-plugins/tree/master/assets">assets</a> Pelican plugin to automatically compile the Sass code into one CSS file (<code class="docutils literal"><span class="pre">style.css</span></code>) every time the site is generated. The relevant code is in the <code class="docutils literal"><span class="pre">base.html</span></code> template file:</p>
+<div class="highlight-default"><div class="highlight"><pre>&lt;!-- Custom Stylesheet --&gt;
+{# We use the assets plugin to compile all the CSS on the fly #}
+{% assets filters=&quot;scss&quot;, output=&quot;css/style.css&quot;,&quot;css/style.scss&quot; %}
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ SITEURL }}/{{ ASSET_URL }}&quot;&gt;
+{% endassets %}
+</pre></div>
+</div>
+<p>In general:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">_colors_and_fonts.scss</span></code></li>
+</ul>
+</div>
+<div class="section" id="js">
+<span id="templates"></span><h3><code class="docutils literal"><span class="pre">js</span></code><a class="headerlink" href="#js" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="grouped-categories">
+<h4><code class="docutils literal"><span class="pre">grouped_categories</span></code><a class="headerlink" href="#grouped-categories" title="Permalink to this headline">¶</a></h4>
+<p>A Highcharts module that allows for grouping categories on the x-axis of a chart. For example, you can have each borough and then within each borough bars for two different years.</p>
+</div>
+<div class="section" id="figures-js">
+<h4><code class="docutils literal"><span class="pre">figures.js</span></code><a class="headerlink" href="#figures-js" title="Permalink to this headline">¶</a></h4>
+<p>A script that has code to handle figures.</p>
+<dl class="function">
+<dt id="setHighchartsOptions">
+<code class="descname">setHighchartsOptions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#setHighchartsOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets default options for Highcharts, so that charts look consistent site-wide. These options can generally be overridden by setting the options in specific figure scripts.</p>
+<p>In particular, this includes the <code class="xref js js-data docutils literal"><span class="pre">colors</span></code> array, which defines the color scheme for figures and maps.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="getFigureText">
+<code class="descname">getFigureText</code><span class="sig-paren">(</span><em>chart</em><span class="sig-paren">)</span><a class="headerlink" href="#getFigureText" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>chart</strong> &#8211; The Highcharts chart object to get text for</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>An object with two attributes:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">title</span></code> containing HTML for both the figure title and subtitle (since they are both inserted into the chart&#8217;s <code class="docutils literal"><span class="pre">title</span></code>, as we use the <code class="docutils literal"><span class="pre">subtitle</span></code> for the footnote)</li>
+<li><code class="docutils literal"><span class="pre">footnote</span></code> containing the HTML for the sources and notes for the figure, which ultimately gets inserted into the <code class="docutils literal"><span class="pre">subtitle</span></code> attribute of the figure</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function returns the title, subtitle, sources, and notes for a given figure,
+pulling them from the <code class="docutils literal"><span class="pre">&lt;caption&gt;</span></code> tags of the data table, where they are stored after
+having been read in from the markdown files.</p>
+<p>This allows us to set all of the text in Markdown files that can be more easily edited than figure script files. The figure title, for example, gets parsed by Pelican in the slide Markdown file, then gets put into the page in the <code class="docutils literal"><span class="pre">&lt;caption&gt;</span></code> tag, and then gets read by this function from the HTML and inserted into the Highcharts <code class="docutils literal"><span class="pre">title</span></code> attribute.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="group2Cols">
+<code class="descname">group2Cols</code><span class="sig-paren">(</span><em>parent_cat</em>, <em>child_cat</em><span class="sig-paren">)</span><a class="headerlink" href="#group2Cols" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent_cat</strong> (<em>array</em>) &#8211; The parent category (aka supercategory), as a column of the parsed data table</li>
+<li><strong>child_cat</strong> (<em>array</em>) &#8211; The child category, as a column of the parsed data table</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function takes two columns and converts them into the format required by
+<code class="docutils literal"><span class="pre">grouped-categories.js</span></code>:</p>
+<p><code class="docutils literal"><span class="pre">parent_cat</span></code> is an array representing the column of values for the parent category
+(aka supercategory).</p>
+<p><code class="docutils literal"><span class="pre">child_cat</span></code> is an array representing the column of values for the child category.</p>
+<p>This function assumes the columns are laid out as they would be to make a stacked
+bar graph in Excel, namely:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&#8220;Parent Category Name&#8221;</td>
+<td>&#8220;Child Category Name&#8221;</td>
+</tr>
+<tr class="row-even"><td>&#8220;Parent value 1&#8221;</td>
+<td>&#8220;Child value 1&#8221;</td>
+</tr>
+<tr class="row-odd"><td>null</td>
+<td>&#8220;Child value 2&#8221;</td>
+</tr>
+<tr class="row-even"><td>&#8220;parent Value 2&#8221;</td>
+<td>&#8220;Child value 1&#8221;</td>
+</tr>
+<tr class="row-odd"><td>null</td>
+<td>&#8220;Child value 2&#8221;</td>
+</tr>
+</tbody>
+</table>
+<p>So, the parent category is <code class="docutils literal"><span class="pre">null</span></code> whenever that row&#8217;s child value is part of the
+same parent category; in this case, we need to turn this into:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="groupColumns">
+<code class="descname">groupColumns</code><span class="sig-paren">(</span><em>columns</em>, <em>groupedIndices</em><span class="sig-paren">)</span><a class="headerlink" href="#groupColumns" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>columns</strong> (<em>array</em>) &#8211; An array of column arrays, as you would get in the <code class="docutils literal"><span class="pre">parsed</span></code> function in Highcharts</li>
+<li><strong>groupedIndices</strong> (<em>array</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Function to take column array and create a grouped categories array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="resizeAll">
+<code class="descname">resizeAll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#resizeAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function resizes all the figures to be the height of their parent.</p>
+<p>This allows the actual size of the slides to be set at runtime, while the
+figures will be expanded to fit them.</p>
+<p>Note that right now it assumes a full-screen layout; we assume for example
+that <code class="docutils literal"><span class="pre">.slide-figure-right</span></code> is actually on the right, rather than having wrapped
+around to be on the bottom, as happens if the screen is not wide enough.</p>
+<p>TODO: Need to do the resizing differently for small screens</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Templates<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The template defines each slides <em>structure</em>, and it <em>may</em> define actual content, too. For example, suppose the template for a page had the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Welcome</span> <span class="n">to</span> <span class="p">{{</span> <span class="n">page</span><span class="o">.</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The &#8220;Welcome to&#8221; would appear on every page created with that template, but the special double-braces <code class="docutils literal"><span class="pre">{{</span></code> and <code class="docutils literal"><span class="pre">}}</span></code> are a directive to Jinja2 to insert the contents of the <code class="docutils literal"><span class="pre">title</span></code> attribute of the <code class="docutils literal"><span class="pre">page</span></code> object, so the text following &#8220;Welcome to&#8221; would be different for each page.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configs.html" class="btn btn-neutral float-right" title="Settings and Config Files" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="content.html" class="btn btn-neutral" title="Microsite Content" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, NYU Furman Center.
+      Last updated on Apr 10, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

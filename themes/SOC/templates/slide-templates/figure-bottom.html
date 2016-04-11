@@ -1,0 +1,17 @@
+<div class="slide slide-with-figure slide-with-figure-bottom slide-center slide-tall well col-lg-10 col-md-12">
+  <div class="slide-text-container slide-top row">
+    <div class="col-md-5">
+      <h3 class="text slide-title {{ slide.title_class }}">{{ slide.title }}</h3>
+    </div>
+    <div class="slide-text col-md-7">
+      
+      <div class="text slide-content">{{ slide.content }}</div>
+    </div>
+  </div>
+  <div class="slide-figure-container slide-figure-bottom row">
+    
+    <div id="{{ slide.slug }}" class="slide-figure col-xs-12">
+    {{ insert_figure(slide) }}
+    </div>
+  </div>
+</div>

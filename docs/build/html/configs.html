@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Settings and Config Files &mdash; MicroCider 0.1beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MicroCider 0.1beta documentation" href="index.html"/>
+        <link rel="next" title="Plugins" href="plugins.html"/>
+        <link rel="prev" title="The SOC Theme" href="soc_theme.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MicroCider
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to MicroCider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="need_to_know.html">Tools and Background Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Microsite Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soc_theme.html">The SOC Theme</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Settings and Config Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pelicanconf">pelicanconf.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-publishconf">publishconf.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-themeconf">themes\SOC\themeconf.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Making Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps.html">Working with Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_microsite.html">Making a New Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">How to Publish Your Microsite</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MicroCider</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Settings and Config Files</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/configs.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="settings-and-config-files">
+<h1>Settings and Config Files<a class="headerlink" href="#settings-and-config-files" title="Permalink to this headline">¶</a></h1>
+<p>There are three configuration files:</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-pelicanconf" title="pelicanconf"><code class="xref py py-obj docutils literal"><span class="pre">pelicanconf</span></code></a></td>
+<td>Main Pelican configuration file</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#module-publishconf" title="publishconf"><code class="xref py py-obj docutils literal"><span class="pre">publishconf</span></code></a></td>
+<td>Configuration file for publishing to server</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#module-themeconf" title="themeconf"><code class="xref py py-obj docutils literal"><span class="pre">themeconf</span></code></a></td>
+<td>Configuration file for the theme.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="module-pelicanconf">
+<span id="pelicanconf-py"></span><h2>pelicanconf.py<a class="headerlink" href="#module-pelicanconf" title="Permalink to this headline">¶</a></h2>
+<p>Main Pelican configuration file</p>
+<p>This configuration file is a combination of settings built into Pelican (see
+the Pelican documentation <a class="reference external" href="http://docs.getpelican.com/en/3.6.3/settings.html">Settings page</a>),
+and custom options for the MicroCider implementation.</p>
+<dl class="data">
+<dt id="pelicanconf.THEME">
+<code class="descclassname">pelicanconf.</code><code class="descname">THEME</code><em class="property"> = u'themes/SOC'</em><a class="headerlink" href="#pelicanconf.THEME" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the theme to use to build the site. This is also the location
+of the <code class="file docutils literal"><span class="pre">themeconf.py</span></code> config file, which is imported into <code class="docutils literal"><span class="pre">pelicanconf</span></code>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.SITEURL">
+<code class="descclassname">pelicanconf.</code><code class="descname">SITEURL</code><em class="property"> = u'http://localhost:8000'</em><a class="headerlink" href="#pelicanconf.SITEURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL for testing the site. Note that the port number (8000)
+should match the port specified in fabfile.py
+This is overridden by the publish config file for actually
+publishing the site.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.TIMEZONE">
+<code class="descclassname">pelicanconf.</code><code class="descname">TIMEZONE</code><em class="property"> = u'America/New_York'</em><a class="headerlink" href="#pelicanconf.TIMEZONE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timezone for dates etc. Not really used.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.DEFAULT_LANG">
+<code class="descclassname">pelicanconf.</code><code class="descname">DEFAULT_LANG</code><em class="property"> = u'en'</em><a class="headerlink" href="#pelicanconf.DEFAULT_LANG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default language</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.DEFAULT_DATE">
+<code class="descclassname">pelicanconf.</code><code class="descname">DEFAULT_DATE</code><em class="property"> = u'fs'</em><a class="headerlink" href="#pelicanconf.DEFAULT_DATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default date format. Not really used.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.DEFAULT_PAGINATION">
+<code class="descclassname">pelicanconf.</code><code class="descname">DEFAULT_PAGINATION</code><em class="property"> = False</em><a class="headerlink" href="#pelicanconf.DEFAULT_PAGINATION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Since it&#8217;s not a blog, we don&#8217;t want to paginate posts (split across pages)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.PATH">
+<code class="descclassname">pelicanconf.</code><code class="descname">PATH</code><em class="property"> = u'../fc-microsites/SOC 2014'</em><a class="headerlink" href="#pelicanconf.PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">PATH</span></code> is the location of the content. You can set it on the command
+line when calling the <code class="docutils literal"><span class="pre">pelican</span></code> command, or you can specify it as an
+option when calling <code class="docutils literal"><span class="pre">fabric</span></code>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.ARTICLE_PATHS">
+<code class="descclassname">pelicanconf.</code><code class="descname">ARTICLE_PATHS</code><em class="property"> = [u'report']</em><a class="headerlink" href="#pelicanconf.ARTICLE_PATHS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The folder that contains the articles (aka chapters, sections, and slides)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.STATIC_PATHS">
+<code class="descclassname">pelicanconf.</code><code class="descname">STATIC_PATHS</code><em class="property"> = [u'figures', u'data', u'images']</em><a class="headerlink" href="#pelicanconf.STATIC_PATHS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Folders that contain static content, which doesn&#8217;t need to be parsed by
+Pelican. For example, CSV files the just get moved from the content directory
+to the output directory.</p>
+<p>Anything that is in these folders will be moved to a folder of the same name
+in the output directory.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.STATIC_EXCLUDES">
+<code class="descclassname">pelicanconf.</code><code class="descname">STATIC_EXCLUDES</code><em class="property"> = [u'images/backgrounds/smaller versions', u'images/backgrounds/originals']</em><a class="headerlink" href="#pelicanconf.STATIC_EXCLUDES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude the following directories from the static paths.
+This means that static files in these directories will not be copied over
+to the output directory.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.IGNORE_FILES">
+<code class="descclassname">pelicanconf.</code><code class="descname">IGNORE_FILES</code><em class="property"> = [u'_*']</em><a class="headerlink" href="#pelicanconf.IGNORE_FILES" title="Permalink to this definition">¶</a></dt>
+<dd><p>See the main Pelican docs for more on these settings.</p>
+<p>Basically, they determine where articles are saved to in the output directory
+and also which URLs will be used to view them on the finished site.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.CATEGORY_URL">
+<code class="descclassname">pelicanconf.</code><code class="descname">CATEGORY_URL</code><em class="property"> = u'{slug}/'</em><a class="headerlink" href="#pelicanconf.CATEGORY_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chapters and sections are accessible by using the slug name after the
+site&#8217;s root URL</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.CATEGORY_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">CATEGORY_SAVE_AS</code><em class="property"> = u'{slug}/index.html'</em><a class="headerlink" href="#pelicanconf.CATEGORY_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where to save the file produced from the <code class="docutils literal"><span class="pre">category.html</span></code> template.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.AUTHOR_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">AUTHOR_SAVE_AS</code><em class="property"> = u''</em><a class="headerlink" href="#pelicanconf.AUTHOR_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>We do not want to save author pages, since we don&#8217;t use authors.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.CATEGORIES_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">CATEGORIES_SAVE_AS</code><em class="property"> = u''</em><a class="headerlink" href="#pelicanconf.CATEGORIES_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>We do not want an index page for all categories; we will use a custom
+<code class="docutils literal"><span class="pre">index.html</span></code> template to create our own index page.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.TAG_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">TAG_SAVE_AS</code><em class="property"> = u''</em><a class="headerlink" href="#pelicanconf.TAG_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>We do not use tags</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.YEAR_ARCHIVE_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">YEAR_ARCHIVE_SAVE_AS</code><em class="property"> = u''</em><a class="headerlink" href="#pelicanconf.YEAR_ARCHIVE_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>We do not use archives</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.MONTH_ARCHIVE_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">MONTH_ARCHIVE_SAVE_AS</code><em class="property"> = u''</em><a class="headerlink" href="#pelicanconf.MONTH_ARCHIVE_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>We do not use archives</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.DAY_ARCHIVE_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">DAY_ARCHIVE_SAVE_AS</code><em class="property"> = u''</em><a class="headerlink" href="#pelicanconf.DAY_ARCHIVE_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>We do not use archives</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.ARTICLE_URL">
+<code class="descclassname">pelicanconf.</code><code class="descname">ARTICLE_URL</code><em class="property"> = u'{category}/{slug}'</em><a class="headerlink" href="#pelicanconf.ARTICLE_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each article (i.e. slide) is saved using the article slug within the category
+which includes the chapter and section. Note that this is for viewing a
+single slide at a time, which we pretty much only want for sharing purposes;
+it&#8217;s nice to be able to direct someone to a single page with a slide, as
+Facebook, for example, will then put that slide&#8217;s title in the post, rather
+than the title for the whole microsite</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.ARTICLE_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">ARTICLE_SAVE_AS</code><em class="property"> = u'{category}/{slug}.html'</em><a class="headerlink" href="#pelicanconf.ARTICLE_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where to save each slide in the output directory</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.PAGE_URL">
+<code class="descclassname">pelicanconf.</code><code class="descname">PAGE_URL</code><em class="property"> = u'{slug}/'</em><a class="headerlink" href="#pelicanconf.PAGE_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pages are accessed using the slug</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.PAGE_SAVE_AS">
+<code class="descclassname">pelicanconf.</code><code class="descname">PAGE_SAVE_AS</code><em class="property"> = u'{slug}/index.html'</em><a class="headerlink" href="#pelicanconf.PAGE_SAVE_AS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where to save page files</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.PLUGIN_PATHS">
+<code class="descclassname">pelicanconf.</code><code class="descname">PLUGIN_PATHS</code><em class="property"> = [u'plugins']</em><a class="headerlink" href="#pelicanconf.PLUGIN_PATHS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Folders to look for Pelican plugins in</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.PLUGINS">
+<code class="descclassname">pelicanconf.</code><code class="descname">PLUGINS</code><em class="property"> = [u'category_meta', u'ordered_categories', u'data_import', u'jinja_tests', u'assets']</em><a class="headerlink" href="#pelicanconf.PLUGINS" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of plugins to load when testing. We have a different list for publishing</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.CATEGORY_SORT_BY">
+<code class="descclassname">pelicanconf.</code><code class="descname">CATEGORY_SORT_BY</code><em class="property"> = u'chapterno'</em><a class="headerlink" href="#pelicanconf.CATEGORY_SORT_BY" title="Permalink to this definition">¶</a></dt>
+<dd><p>The field that the <code class="xref py py-mod docutils literal"><span class="pre">ordered_categories</span></code> plugin should use to sort
+chapters and sections by.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.JINJA_FILTERS">
+<code class="descclassname">pelicanconf.</code><code class="descname">JINJA_FILTERS</code><em class="property"> = {u'debug': &lt;function debug at 0x10a455a28&gt;, u'string_list': &lt;function string_list at 0x10a455b90&gt;, u'cat_level': &lt;function cat_level at 0x10a4512a8&gt;, u'json': &lt;function json at 0x10a4558c0&gt;}</em><a class="headerlink" href="#pelicanconf.JINJA_FILTERS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This matches names of Jinja2 filters to actual methods as defined in
+<code class="xref py py-mod docutils literal"><span class="pre">soc_jinja2_filters</span></code>. The keys in this dict are the strings to use
+in the actual templates (i.e. <code class="docutils literal"><span class="pre">{{</span> <span class="pre">article|debug</span> <span class="pre">}}</span></code> will apply the
+<code class="xref py py-func docutils literal"><span class="pre">soc_jinja2_filters.debug()</span></code> function to the <code class="docutils literal"><span class="pre">article</span></code> object),
+and the values are the functions that get called when Jinja sees those
+filters.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.JINJA_TESTS">
+<code class="descclassname">pelicanconf.</code><code class="descname">JINJA_TESTS</code><em class="property"> = {u'filepath': &lt;function filepath at 0x10a46e500&gt;}</em><a class="headerlink" href="#pelicanconf.JINJA_TESTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test functions to add to the built-in Jinja2 tests. These functions will get
+called on the objects in the template. So <code class="docutils literal"><span class="pre">{{</span> <span class="pre">article.figure|filepath</span> <span class="pre">}}</span></code>
+will call the <code class="xref py py-func docutils literal"><span class="pre">soc_jinja2_filters.filepath()</span></code> function on the
+<code class="docutils literal"><span class="pre">article.figure</span></code> string and return the result.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.SITE_SCRIPTS">
+<code class="descclassname">pelicanconf.</code><code class="descname">SITE_SCRIPTS</code><em class="property"> = [u'//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js', u'//cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js', u'//code.highcharts.com/highcharts.js', u'//code.highcharts.com/highcharts-more.js', u'//code.highcharts.com/modules/data.js', u'//code.highcharts.com/modules/exporting.js', u'//code.highcharts.com/maps/modules/map.js', u'//cdn.jsdelivr.net/blazy/latest/blazy.min.js']</em><a class="headerlink" href="#pelicanconf.SITE_SCRIPTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of external javascripts to load on each page</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pelicanconf.DELETE_OUTPUT_DIRECTORY">
+<code class="descclassname">pelicanconf.</code><code class="descname">DELETE_OUTPUT_DIRECTORY</code><em class="property"> = True</em><a class="headerlink" href="#pelicanconf.DELETE_OUTPUT_DIRECTORY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overwrite the output directory</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-publishconf">
+<span id="publishconf-py"></span><h2>publishconf.py<a class="headerlink" href="#module-publishconf" title="Permalink to this headline">¶</a></h2>
+<p>Configuration file for publishing to server</p>
+<p>This file is imported after <a class="reference internal" href="#module-pelicanconf" title="pelicanconf"><code class="xref py py-mod docutils literal"><span class="pre">pelicanconf</span></code></a> when building the site to be
+published to the server, rather than for local testing. It overrides several
+variables that need to be different when publishing the site, vs. testing it
+locally.</p>
+<dl class="data">
+<dt id="publishconf.SITEURL">
+<code class="descclassname">publishconf.</code><code class="descname">SITEURL</code><em class="property"> = u'http://furmancenter.org/soc2014'</em><a class="headerlink" href="#publishconf.SITEURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The SITEURL here is the actual URL for the live site. This is used in all the
+links.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="publishconf.RELATIVE_URLS">
+<code class="descclassname">publishconf.</code><code class="descname">RELATIVE_URLS</code><em class="property"> = False</em><a class="headerlink" href="#publishconf.RELATIVE_URLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>When publishing, we want to use absolute URLs (with the full <a class="reference internal" href="#publishconf.SITEURL" title="publishconf.SITEURL"><code class="xref py py-data docutils literal"><span class="pre">SITEURL</span></code></a>
+included), rather than relative URLs</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="publishconf.DELETE_OUTPUT_DIRECTORY">
+<code class="descclassname">publishconf.</code><code class="descname">DELETE_OUTPUT_DIRECTORY</code><em class="property"> = True</em><a class="headerlink" href="#publishconf.DELETE_OUTPUT_DIRECTORY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the <code class="docutils literal"><span class="pre">output</span></code> directory so that we have a clean rebuild.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="publishconf.PLUGINS">
+<code class="descclassname">publishconf.</code><code class="descname">PLUGINS</code><em class="property"> = [u'category_meta', u'ordered_categories', u'data_import', u'jinja_tests', u'assets', u'optimize_images']</em><a class="headerlink" href="#publishconf.PLUGINS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some plugins, like <code class="docutils literal"><span class="pre">optimize_images</span></code> can take some time, so we don&#8217;t want
+to include them when testing locally, but we do when publishing.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-themeconf">
+<span id="themes-soc-themeconf-py"></span><h2>themes\SOC\themeconf.py<a class="headerlink" href="#module-themeconf" title="Permalink to this headline">¶</a></h2>
+<p>Configuration file for the theme.</p>
+<p>This is imported by the main configuration files.</p>
+<dl class="data">
+<dt id="themeconf.AUTHOR">
+<code class="descclassname">themeconf.</code><code class="descname">AUTHOR</code><em class="property"> = u'NYU Furman Center'</em><a class="headerlink" href="#themeconf.AUTHOR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Author, not really used</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.SITENAME">
+<code class="descclassname">themeconf.</code><code class="descname">SITENAME</code><em class="property"> = u&quot;State of New York City's &lt;br&gt;Housing &amp;amp; Neighborhoods in 2014&quot;</em><a class="headerlink" href="#themeconf.SITENAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>The main branding text</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.SITEDESC">
+<code class="descclassname">themeconf.</code><code class="descname">SITEDESC</code><em class="property"> = u&quot;The NYU Furman Center's annual report on New York City and its neighborhoods.&quot;</em><a class="headerlink" href="#themeconf.SITEDESC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Site description (used in meta tags)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.DEFAULT_IMAGE">
+<code class="descclassname">themeconf.</code><code class="descname">DEFAULT_IMAGE</code><em class="property"> = 'images/figures/overview_landuse_landuse1.png'</em><a class="headerlink" href="#themeconf.DEFAULT_IMAGE" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the default image to share to Facebook</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.CSS_URLS">
+<code class="descclassname">themeconf.</code><code class="descname">CSS_URLS</code><em class="property"> = ['//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', '//cdn.jsdelivr.net/jquery.gray/1.4.2/gray.min.css']</em><a class="headerlink" href="#themeconf.CSS_URLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of external CSS stylesheets to load</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.THEME_STATIC_PATHS">
+<code class="descclassname">themeconf.</code><code class="descname">THEME_STATIC_PATHS</code><em class="property"> = ['static']</em><a class="headerlink" href="#themeconf.THEME_STATIC_PATHS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Static path in the theme folder. The contents of this folder will be copied
+to the output directory. It normally includes things like CSS stylesheets,
+site-wide javascript files, etc.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.BRAND_IMAGE">
+<code class="descclassname">themeconf.</code><code class="descname">BRAND_IMAGE</code><em class="property"> = 'images/theme/FurmanCenter_Icon_CMYK_TranspOrange.png'</em><a class="headerlink" href="#themeconf.BRAND_IMAGE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The site logo. This path is with respect to the content path (i.e. PATH)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.CHAPTER_LINK_IMAGES">
+<code class="descclassname">themeconf.</code><code class="descname">CHAPTER_LINK_IMAGES</code><em class="property"> = ['images/theme/Density.png', 'images/theme/CitywideOverview.png', 'images/theme/Data.png']</em><a class="headerlink" href="#themeconf.CHAPTER_LINK_IMAGES" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of images to use for chapter links, both on the index page and in the
+top navbar. Any chapters without images will just have the chapter name as
+the link.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.FAVICON">
+<code class="descclassname">themeconf.</code><code class="descname">FAVICON</code><em class="property"> = 'images/theme/favicon.ico'</em><a class="headerlink" href="#themeconf.FAVICON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Location of the favicon, relative to the content directory (i.e. PATH)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.DIRECT_TEMPLATES">
+<code class="descclassname">themeconf.</code><code class="descname">DIRECT_TEMPLATES</code><em class="property"> = 'index'</em><a class="headerlink" href="#themeconf.DIRECT_TEMPLATES" title="Permalink to this definition">¶</a></dt>
+<dd><p>These are templates that are processed directly, without any content like
+articles, pages, etc. Basically, they are templates that do not receive any
+objects created by Pelican except for the default objects.
+In our case, the only page we want to render directly is the index page
+(i.e. the home page for the microsite).</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.SLUGIFY_SOURCE">
+<code class="descclassname">themeconf.</code><code class="descname">SLUGIFY_SOURCE</code><em class="property"> = 'basename'</em><a class="headerlink" href="#themeconf.SLUGIFY_SOURCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>This tells Pelican to use the filename to set the article slug. The slug will
+be the filename without the extension.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.ARTICLE_ORDER_BY">
+<code class="descclassname">themeconf.</code><code class="descname">ARTICLE_ORDER_BY</code><em class="property"> = 'slug'</em><a class="headerlink" href="#themeconf.ARTICLE_ORDER_BY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Within sections, sort articles (i.e. slides) by slug (as opposed, for example
+to by date, which doesn&#8217;t make sense in our context). Slugs will be sorted
+alphabetically.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.FORMATTED_FIELDS">
+<code class="descclassname">themeconf.</code><code class="descname">FORMATTED_FIELDS</code><em class="property"> = ['title', 'summary']</em><a class="headerlink" href="#themeconf.FORMATTED_FIELDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which metadata fields can have markdown formatting (or HTML) in them</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.THEME_SCRIPTS">
+<code class="descclassname">themeconf.</code><code class="descname">THEME_SCRIPTS</code><em class="property"> = ['/theme/js/grouped_categories/grouped-categories.js', '/theme/js/figures.js', '/theme/js/scripts.js']</em><a class="headerlink" href="#themeconf.THEME_SCRIPTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scripts within the theme&#8217;s static folder that should be loaded onto every
+page. Note that these are paths relative to the output directory; by defaut
+all the files in the <a class="reference internal" href="#themeconf.THEME_STATIC_PATHS" title="themeconf.THEME_STATIC_PATHS"><code class="xref py py-data docutils literal"><span class="pre">THEME_STATIC_PATHS</span></code></a> directories are saved
+into the <code class="docutils literal"><span class="pre">/theme/</span></code> subfolder of the output directory.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.DEFAULT_LAYOUT">
+<code class="descclassname">themeconf.</code><code class="descname">DEFAULT_LAYOUT</code><em class="property"> = 'no-figure'</em><a class="headerlink" href="#themeconf.DEFAULT_LAYOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default layout for slides. Note that if there is a figure specified,
+whatever it is, the <a class="reference internal" href="#themeconf.DEFAULT_FIGURE_LAYOUT" title="themeconf.DEFAULT_FIGURE_LAYOUT"><code class="xref py py-data docutils literal"><span class="pre">DEFAULT_FIGURE_LAYOUT</span></code></a> will be used instead.
+The layout is simply the name of a template in the <code class="docutils literal"><span class="pre">slide-templates</span></code> folder</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.DEFAULT_FIGURE_LAYOUT">
+<code class="descclassname">themeconf.</code><code class="descname">DEFAULT_FIGURE_LAYOUT</code><em class="property"> = 'figure-right'</em><a class="headerlink" href="#themeconf.DEFAULT_FIGURE_LAYOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default layout to use for slides with non-empty <code class="docutils literal"><span class="pre">figure</span></code> fields.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.DEFAULT_FIGURE_NOTES">
+<code class="descclassname">themeconf.</code><code class="descname">DEFAULT_FIGURE_NOTES</code><em class="property"> = ''</em><a class="headerlink" href="#themeconf.DEFAULT_FIGURE_NOTES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notes to go on every figure. NB: If you set DEFAULT_FIGURE_NOTES to be
+non-empty, specifying the notes on any specific figure will OVERRIDE the
+default; if you want the default PLUS specific notes, you have to manually
+insert the default into the specific figure&#8217;s markdown file.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.DEFAULT_BACKGROUNDS">
+<code class="descclassname">themeconf.</code><code class="descname">DEFAULT_BACKGROUNDS</code><em class="property"> = ['images/backgrounds/BklynBridge.jpg', 'images/backgrounds/BKNavyYard.jpg']</em><a class="headerlink" href="#themeconf.DEFAULT_BACKGROUNDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of the images to cycle through for the background if none is specified
+on a particular slide</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="themeconf.DATA_PATH">
+<code class="descclassname">themeconf.</code><code class="descname">DATA_PATH</code><em class="property"> = 'data'</em><a class="headerlink" href="#themeconf.DATA_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path that the <a class="reference internal" href="plugins.html#module-data_import.data_import" title="data_import.data_import"><code class="xref py py-mod docutils literal"><span class="pre">data_import.data_import</span></code></a> Pelican plugin should
+look in for data files.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="soc_theme.html" class="btn btn-neutral" title="The SOC Theme" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, NYU Furman Center.
+      Last updated on Apr 10, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

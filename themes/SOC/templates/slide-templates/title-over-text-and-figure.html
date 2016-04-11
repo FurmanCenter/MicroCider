@@ -1,0 +1,19 @@
+<div class="slide slide-center slide-tall well col-xs-12 col-sm-11 col-md-10">
+  <div class="slide-title-container row">
+    <div class="col-xs-12">
+      <h3 class="text slide-title {{ slide.title_class }}">{{ slide.title }}</h3>
+    </div>
+  </div>
+  <div class="slide-text-container row">
+    <div class="slide-text col-xs-12">
+      
+      <div class="text slide-content">{{ slide.content }}</div>
+    </div>
+  </div>
+  <div class="row slide-figure-container slide-figure slide-title-over-text-and-figure">
+    <div id="{{ slide.slug }}" class="slide-figure col-xs-12">
+      {{ insert_figure(slide) }}
+
+    </div>
+  </div>
+</div>

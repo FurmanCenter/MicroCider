@@ -1,0 +1,86 @@
+/* 
+Styling for Figures, maps, and charts
+
+This Sass file is imported into our main style file.
+*/
+
+text {
+    font-family: $sans !important;
+}
+
+.figure-img,
+.slide-figure {
+    width: 100%;
+    height: 100%;
+}
+
+.figure-data {
+    position: absolute;
+    left: -9999em;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.figure-title-container {
+    width: 100%;
+    left: 0;
+}
+
+.figure-footnote {
+    margin: 0;
+    padding: 0;
+}
+
+.slide-figure-container {
+    margin: 0 auto;
+}
+.slide-map-container {
+}
+
+.figure-tabs {
+}
+.figure-tab-content {
+	height: 100%;
+	width: 100%;
+}
+.figure-tab-pane {
+	height: 100%;
+	width: 100%;
+}
+.figure-tabs a {
+	cursor: pointer;
+}
+
+// Tabs on left for title-over-text-and-figure figures
+.slide-title-over-text-and-figure .figure-tabs {
+    float: left;
+    width: 20%;
+}
+.slide-title-over-text-and-figure .figure-tabs li {
+    float: none;
+}
+.slide-title-over-text-and-figure .figure-tabs>li.active>a {
+    border-color: #ddd;
+    border-right-color: transparent;
+    margin-right: 0;
+    margin-bottom: 1px;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.slide-title-over-text-and-figure .figure-tab-content {
+    float: left;
+    width: 80%;
+}
+
+#datamap .highcharts-series-group path,
+#datamap .highcharts-data-labels text {
+    cursor: pointer;
+}
+#datamap .tooltip-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 0 .5em;
+}

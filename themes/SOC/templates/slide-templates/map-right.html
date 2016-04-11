@@ -1,0 +1,22 @@
+{#% from 'category.html' import add_script, scripts %#}
+<div class="slide slide-with-map slide-with-map-right slide-tall slide-center well row col-lg-11">
+<div class="slide-text-container slide-left col-md-4">
+  <div class="slide-text slide-text-left">
+    <h3 class="text slide-title {{ slide.title_class }}">{{ slide.title }}</h3>
+    <div class="text slide-content">{{ slide.content }}</div>
+    {#{ scripts|debug }#}
+  </div>
+  </div>
+  <div class="slide-map-container slide-figure-container slide-figure-right slide-map-right col-md-8">
+  <div id="{{ slide.slug }}" class="slide-map slide-figure">
+    {{ insert_figure(slide) }}
+    {#% if ".JS" in slide.figure.upper() %}
+      <span aria-hidden="true">Map loading...</span>
+      
+      
+    {% else %}
+      <img class="figure-img img-responsive" src="{{ SITEURL }}/figures/{{ slide.figure }}" alt="Figure for {{ slide.slug }}: {{ slide.figure_desc }}"></img>
+    {% endif %#}
+  </div>
+  </div>
+</div>

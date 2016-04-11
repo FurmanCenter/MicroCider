@@ -1,0 +1,184 @@
+{############################
+category.html
+
+Template file for a "category", which we use to group slides/articles into _sections_ and _chapters_.
+
+############################}
+
+{% extends "base.html" %}
+
+{% from 'macros.html' import chapter_buttons, print_section, social_links, page_links with context %}
+
+
+{############################
+       FACEBOOK METADATA
+#############################}
+{% block facebook_meta %}
+  <meta property="og:url"
+        content="{{ SITEURL }}/{{ output_file }}" />
+  <meta property="og:type"
+        content="article" />
+  <meta property="og:title"
+        content="{{ category.name|striptags }} - {{ SITENAME|striptags }}" />
+  <meta property="og:description"
+        content="{{ category.description|striptags }}" />
+  <meta property="og:image"
+        content="{{ SITEURL }}/{{ DEFAULT_IMAGE }}" />
+{% endblock facebook_meta %}
+
+
+{############################
+       LEFT BAR
+#############################}
+{% block leftbar %}
+{# Unless the category's index.md file specifies to hide the navbar,
+    include it with all the section/slide links #}
+{% if not category.hide_navbar %}
+  <nav id="section-nav" class="hidden visible-lg-block col-lg-2">
+    <ul class="nav nav-stacked">
+      {% block section_nav %}
+        {% if category.children.keys()|length > 0 %}
+          {% set subcategories = category.children %}
+        {% else %} {# Viewing single subsection, so no children categories #}
+          {% set subcategories = { category: articles } %}
+          {% set ordered_parent_subcategories = category.parent.children.keys()|sort(attribute=CATEGORY_SORT_BY) %}
+        {% endif %}
+        {% for section in subcategories.keys()|sort(attribute=CATEGORY_SORT_BY) %}
+          {% set slides = subcategories[section] %}
+          {% set outer_loop = loop %}
+          <li class="section-header">
+            {# If we are displaying a single article, the article variable will
+              be set. Then, the left-bar links should be absolute. Otherwise, they
+              should be relative #}
+            {% if article %}
+              <a href="{{ SITEURL }}/{{ category.slug }}/#section{{ loop.index }}">{{ loop.index }}: {{ section.shortname }}</a>
+            {% elif category.children.keys()|length == 0 %} {# Single subsection #}
+              {% set index = ordered_parent_subcategories.index(category) + 1 %}
+              <a href="{{ SITEURL }}/{{ category.parent.slug }}/#section{{ index }}" class="active">{{ index }}: {{ section.shortname }}</a>
+            {% else %}
+              <a href="#section{{ loop.index }}">{{ loop.index }}: {{ section.shortname }}</a>
+            {% endif %}
+            <ul>
+            {# For the introduction, we'll test if the shortname is the same as for the section.
+            If it is, we'll use either .intro_shortname or "Introduction" for the short name #}
+            {% set section_shortname = section.shortname %}
+            {% for slide in slides|sort(attribute="slug") %}
+              <li class="slide-header">
+              {% if article %}
+                <a href="{{ SITEURL }}/{{ category.slug }}/#section{{ outer_loop.index }}_{{ loop.index }}">
+                  {{ slide.shortname if slide.shortname != section_shortname else slide.intro_shortname or "Introduction" }}
+                </a></li>
+              {% elif category.children.keys()|length == 0 %} {# Single subsection #}
+                  {% set index = ordered_parent_subcategories.index(category) + 1 %}
+                  <a href="#section{{ outer_loop.index }}_{{ loop.index }}">
+                      {{ slide.shortname if slide.shortname != section_shortname else slide.intro_shortname or "Introduction" }}
+                    </a></li>
+              {% else %}
+                <a href="#section{{ outer_loop.index }}_{{ loop.index }}">
+                    {{ slide.shortname if slide.shortname != section_shortname else slide.intro_shortname or "Introduction" }}
+                  </a></li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+
+          </li>
+        {% endfor %}
+      {% endblock section_nav %}
+    </ul>
+
+    <ul id="page-links-left-bar" class="nav nav-stacked page-links hidden visible-lg-block">
+      {{ page_links() }}
+    </ul>
+  </nav>
+{% endif %}
+{% endblock leftbar %}
+
+
+{############################
+       RIGHT BAR
+#############################}
+{% block rightbar %}
+  <div id="right-bar">
+    <button class="prev-btn btn">
+        <div class="prev-section">
+            <span id="prev-section-icon" class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+          </div>
+        <div class="prev-chapter hidden">
+        {% if category.prev_sibling %}
+          <a href="{{ SITEURL }}/{{ category.prev_sibling.url }}">
+              <span class="prev-chapter-icon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+        {% endif %}
+        </div>
+    </button>
+    {{ social_links() }}
+    <button class="next-btn btn">
+        <div class="next-section">
+            <span id="next-section-icon" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+        </div>
+        <div class="next-chapter hidden">
+        {% if category.next_sibling %}
+          <a href="{{ SITEURL }}/{{ category.next_sibling.url }}">
+              <span class="next-chapter-icon glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          </a>
+        {% endif %}
+        </div>
+    </button>
+  </div>
+{% endblock rightbar %}
+
+
+{############################
+       TOP NAVBAR
+#############################}
+{% block navbar_links %}
+  {{ chapter_buttons(category) }}
+  {# If we are hiding the navbar, then don't hide the page_links from the top bar #}
+  <li id="page-links-top-bar" {% if not category.hide_navbar %}class="hidden-lg"{% endif %}>
+    <ul>
+      {{ page_links() }}
+    </ul>
+  </li>
+{% endblock %}
+
+
+
+{############################
+#############################
+       MAIN CONTENT
+#############################
+#############################}
+{% block content %}
+
+  {{ super() }}
+
+  {# Set default background image, in case background is not
+  specified in the markdown file #}
+  {% set default_bg = cycler(*DEFAULT_BACKGROUNDS) %}
+
+  {# If the category has any subcategories, then print each subcategory as a section #}
+  {% if category.children|length > 0 %}
+    <div id="content" class="col-xs-12">
+      {# Get the list of subcategories (i.e. sections),
+      sorting by the field specified in the config file #}
+      {% set ordered_categories = category.children.keys()|sort(attribute=CATEGORY_SORT_BY) %}
+      {# For each subcategory (in order), print the subcategory using the print_section macro #}
+      {% for subcategory in ordered_categories %}
+        {# List of articles in the subcategory #}
+        {% set articles = category.children[subcategory] %}
+        {% set section = subcategory %}
+        {# Pass the current loop and loop-index variables through to the print_section macro #}
+        {% set section_loop = loop %}
+        {% set section_index = section_loop.index %}
+
+        {{ print_section(subcategory, articles, default_bg, section_loop, category, full_width = category.hide_navbar) }}
+      {% endfor %}
+    </div>
+
+  {% else %}{# If no subcategories, then just print the current category as a section #}
+    <div id="content" class="col-xs-12">
+      {{ print_section(category, articles, default_bg, full_width = category.hide_navbar) }}
+    </div>
+  {% endif %}
+
+{% endblock %}

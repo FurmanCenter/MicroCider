@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tools and Background Knowledge &mdash; MicroCider 0.1beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MicroCider 0.1beta documentation" href="index.html"/>
+        <link rel="next" title="Microsite Content" href="content.html"/>
+        <link rel="prev" title="Introduction to MicroCider" href="intro.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MicroCider
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to MicroCider</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools and Background Knowledge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jinja2">Jinja2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#javascript">Javascript</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Microsite Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soc_theme.html">The SOC Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Settings and Config Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Making Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps.html">Working with Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_microsite.html">Making a New Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">How to Publish Your Microsite</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MicroCider</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tools and Background Knowledge</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/need_to_know.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tools-and-background-knowledge">
+<h1>Tools and Background Knowledge<a class="headerlink" href="#tools-and-background-knowledge" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="markdown">
+<span id="about-markdown"></span><h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
+<p>Most text on a microsite needs to be written in Markdown files, which have the <code class="docutils literal"><span class="pre">*.md</span></code> file extension. <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> is a simple language that is designed to allow you to write plain text files that are readable as text files but can also easily be turned into HTML. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Header for a Markdown File
+==========================
+
+Second-Level Header
+-------------------------------
+
+This is a _markdown_ file. Markdown allows you to:
+* Use normal text
+* Create formatting that doesn&#39;t get in the way of readability
+* Create HTML pages without all the markup tags messing everything up
+</pre></div>
+</div>
+<p>...would get turned into:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Header for a Markdown File<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Second-Level Header<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is a <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>markdown<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> file. Markdown allows you to:<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Use normal text, while still allowing you to use:
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Nested lists<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Links<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Even tables<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;/</span><span class="nt">ul</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Create formatting that doesn&#39;t get in the way of readability<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Create HTML pages without all the markup tags messing everything up<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Pelican, which is the framework that MicroCider uses to build microsites from raw input files, uses Markdown with an extra twist: at the beginning of files, <strong>metadata</strong> can be included by putting the name of a variable (or <em>field</em>) at the start of the line, followed by a colon, followed by what the contents of that variable should be. (See <a class="reference external" href="http://docs.getpelican.com/en/3.6.3/content.html">the Pelican docs</a> for more information.)</p>
+<p>For example, suppose we had a blog and we wanted to create a post with a title, an author, and a date, as well as some actual text content:</p>
+<div class="literal-block-wrapper container" id="example-md-blog-post">
+<div class="code-block-caption"><span class="caption-text">blog_post1.md</span><a class="headerlink" href="#example-md-blog-post" title="Permalink to this code">¶</a></div>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre>title: This is the title of the post
+author: Brian
+date_created: 2016-12-30 09:00
+
+This is the _content_ of the post. Note the blank line above, which is required,
+as it tells Pelican where the metadata ends and where the actual content begins.
+
+This is a second paragraph of content. Again, a blank line in between! But we
+can use **Markdown** in the content. We can also include &lt;b&gt;normal HTML&lt;/b&gt;.
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that the <code class="docutils literal"><span class="pre">date_created</span></code> variable name doesn&#8217;t have a space, because otherwise it would not work as a variable (they cannot contain special characters, either).</p>
+</div>
+<p>Pelican first reads <code class="docutils literal"><span class="pre">blog_post1.md</span></code>, parsing all the metadata and other contents and storing the information in a Python object, <code class="docutils literal"><span class="pre">article</span></code>, which has attributes like <code class="docutils literal"><span class="pre">title</span></code> (containing the string &#8220;This is the title of the post&#8221;), <code class="docutils literal"><span class="pre">author</span></code>, etc. It also has a <code class="docutils literal"><span class="pre">content</span></code> attribute, which contains the actual content of the blog post, which is everything after the first blank line (i.e. line 4).</p>
+<p>We will go over the format of the Markdown files that MicroCider is looking for in the <a class="reference internal" href="content.html#microsite-content"><span class="std std-ref">Microsite Content</span></a> section.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In general, <strong>not all metadata fields need to be included</strong>. If <code class="docutils literal"><span class="pre">blog_post1.md</span></code> did not have an <code class="docutils literal"><span class="pre">author</span></code> field, for example, <code class="docutils literal"><span class="pre">article.author</span></code> would just return <code class="docutils literal"><span class="pre">None</span></code>. Be aware that in some cases, however, that may cause an error (for example, Pelican <strong>requires</strong> the <code class="docutils literal"><span class="pre">title</span></code> field, and will throw an error if an article does not have a title).</p>
+<p class="last">You can almost always, however, add fields that are not used without any issues.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The metadata fields need to come at the <strong>beginning</strong> of the Markdown file, but the fields themselves do not need to come in any order.</p>
+</div>
+</div>
+<div class="section" id="jinja2">
+<h2>Jinja2<a class="headerlink" href="#jinja2" title="Permalink to this headline">¶</a></h2>
+<p>When Pelican is creating the HTML file to display that blog post, it will use a <em>template file</em>, which is written using a language called <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>, which is basically HTML with some Python inserted into it. Pelican (also written in Python), will look for a place in that template to put the title, the author, etc. For example, the template might include the following (note that <code class="docutils literal"><span class="pre">{{</span> <span class="pre">...</span> <span class="pre">}}</span></code> is how we tell Jinja2 to insert the value of the variable inside):</p>
+<div class="literal-block-wrapper container" id="example-jinja2-template">
+<div class="code-block-caption"><span class="caption-text">post.html</span><a class="headerlink" href="#example-jinja2-template" title="Permalink to this code">¶</a></div>
+<div class="highlight-html+jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">article.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Written by <span class="cp">{{</span> <span class="nv">article.author</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Created on: <span class="cp">{{</span> <span class="nv">article.date_created</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Filed under: <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">article.topic</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">article.content</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>So, when Pelican wants to create an HTML file for <a class="reference internal" href="#example-md-blog-post"><span class="std std-ref">blog_post1.md</span></a>, it first reads the Markdown file, creates a Python object from the contents of that file, and then it tries to fill in the blanks:</p>
+<div class="literal-block-wrapper container" id="blog-post1-html">
+<div class="code-block-caption"><span class="caption-text">blog_post1.html</span><a class="headerlink" href="#blog-post1-html" title="Permalink to this code">¶</a></div>
+<div class="highlight-html"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>This is the title of the post<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Written by Brian<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="hll"><span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Created on: 2016-12-30 09:00<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Filed under: <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is the <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>content<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> of the post. Note the blank line
+</span>above, which is required, as it tells Pelican where the metadata ends and where the
+actual content begins.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is a second paragraph of content. Again, a blank line in between! But we can
+<span class="hll">use <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> in the content. We can also include <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>normal HTML<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<p>Let&#8217;s break down some of what went on:</p>
+<ul>
+<li><p class="first">Line 1: For the article title, it simply got inserted in place of the <code class="docutils literal"><span class="pre">{{</span> <span class="pre">article.title</span> <span class="pre">}}</span></code> statement.</p>
+</li>
+<li><p class="first">Line 3: Notice that the <code class="docutils literal"><span class="pre">date_created</span></code> was inserted without any sort of processing: Pelican has no way to know it&#8217;s a <em>date</em>, so it just sees it as a normal string. If you wanted to display it as, say, &#8220;Dec. 30, 2016&#8221;, you would need to change your template or tell Pelican to parse that field as a date.</p>
+</li>
+<li><p class="first">Line 4: <code class="docutils literal"><span class="pre">blog_post1.md</span></code> didn&#8217;t have a <code class="docutils literal"><span class="pre">topic</span></code> field, so nothing was inserted into the <code class="docutils literal"><span class="pre">&lt;strong&gt;&lt;/strong&gt;</span></code> tags on line 4. This doesn&#8217;t cause a problem, but it doesn&#8217;t look great. We might want to rewrite the template so that it first tests to see if there are any topics associated with a post before including anything:</p>
+<blockquote>
+<div><div class="highlight-html+jinja"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">article.topic</span> <span class="cp">%}</span><span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Filed under: <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">article.topic</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+<p>That way, if <code class="docutils literal"><span class="pre">article.topic</span></code> returns <code class="docutils literal"><span class="pre">None</span></code>, the <code class="docutils literal"><span class="pre">h4</span></code> tag won&#8217;t be inserted at all, so there will just be a blank line.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Lines 5-10: Pelican, in reading in the Markdown, inserted <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> paragraph tags around each paragraph of the article content. It also replaced <code class="docutils literal"><span class="pre">_content_</span></code> on line 5 with the HTML version: <code class="docutils literal"><span class="pre">&lt;em&gt;content&lt;/em&gt;</span></code>, and similarly changed <code class="docutils literal"><span class="pre">**Markdown**</span></code> on line 10 to <code class="docutils literal"><span class="pre">&lt;strong&gt;Markdown&lt;/strong&gt;</span></code>.</p>
+</li>
+</ul>
+<p>Another feature of Jinja2 templates is that they can import and extend other template files. So, for example, we use <code class="docutils literal"><span class="pre">base.html</span></code> to be the base template for all the other templates; much of the output pages needs to be the same (they all need to load certain scripts, they all need to set the stylesheets, have <code class="docutils literal"><span class="pre">&lt;html&gt;</span></code> and <code class="docutils literal"><span class="pre">&lt;body</span></code> tags, etc.) so we can put the boilerplate in <code class="docutils literal"><span class="pre">base.html</span></code> and then each other template simply includes those pieces that are different for each type of content.</p>
+<p>Part of the extension/importing feature is the use of <strong>blocks</strong>, which allow you to put a placeholder for certain content that can be overwritten or changed. For example, in <code class="docutils literal"><span class="pre">templates/base.html</span></code>, we have the following in the <code class="docutils literal"><span class="pre">&lt;head&gt;</span></code> tag:</p>
+<div class="highlight-html+jinja"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">SITENAME</span><span class="o">|</span><span class="nf">striptags</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="nv">title</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Normally, then, the title of every page would be the site name (set in the <code class="docutils literal"><span class="pre">SITENAME</span></code> variable in the config files, and removing any HTML tags). However, if we had a template that inherited from <code class="docutils literal"><span class="pre">base.html</span></code> but we wanted to change the title, we could just write:</p>
+<div class="highlight-html+jinja"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>My New Template Title<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">title</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+<p>Notice, in particular, that we do not repeat the <code class="docutils literal"><span class="pre">&lt;title&gt;</span></code> tag, since the contents of the title block get inserted into that tag, replacing whatever was there before.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://jinja.pocoo.org/docs/dev/templates/#template-inheritance">Jinja docs on template inheritance</a></p>
+</div>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>Pelican, as well as the plugins we use, are written in Python. Jinja2 syntax is Python-like; basically it is Python but very limited, and without any reliance on indenting.</p>
+</div>
+<div class="section" id="javascript">
+<h2>Javascript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="content.html" class="btn btn-neutral float-right" title="Microsite Content" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Introduction to MicroCider" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, NYU Furman Center.
+      Last updated on Apr 10, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

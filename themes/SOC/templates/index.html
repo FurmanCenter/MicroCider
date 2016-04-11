@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% from 'macros.html' import chapter_buttons, style_background, page_links with context %}
+{% block leftbar %}
+    {# No leftbar #}
+{% endblock leftbar %}
+{% block navbar %} {% endblock %}
+
+{% block rightbar %}
+  <div id="right-bar">
+    {{ social_links() }}
+    <button class="next-btn btn">
+        
+        <div class="next-chapter ">
+          <a href="{{ SITEURL }}/{{ categories[0].url }}">
+              <span class="next-chapter-icon glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+          </a>
+        </div>
+    </button>
+  </div>
+{% endblock rightbar %}
+
+{% block main %}
+    <div id="main-index" class="container-fluid">
+        <div id="content" class="col-xs-12 index-page">
+            <article id="intro-section" class="container-fluid introduction"
+                {{ style_background(cycler(*DEFAULT_BACKGROUNDS).next()) }}
+                >
+                <div class="slide-container row col-xs-12">
+                    <div class="index-slide slide slide-center well col-xs-12 col-md-10 row">
+                        <div class="spacer hidden-xs hidden-sm col-md-1"></div>
+                        <div class="index-slide-content col-xs-12 col-md-10 container">
+                            <div class="index-logo-title-container col-xs-12">
+                                <a class="navbar-brand-logo navbar-brand" href="#">
+                                    <img src="{{ SITEURL }}/{{ BRAND_IMAGE }}" alt="FurmanCenter.org Logo Link to Homepage" >
+                                </a>
+                                <a class="navbar-brand-title navbar-brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
+                            </div>
+                            <div class="index-text col-xs-12">
+                                <p>
+                                Every year, the NYU Furman Center collects data from various data sources to present our State of New York City's Housing and Neighborhoods report.</p>
+                                <p>This year, our focus is on density in New York City and how it has changed over the last four decades.</p>
+                            </div>
+                            <div class="index-chapter-buttons col-xs-12 row">
+                                <div class="index-chapters-container col-xs-10 col-md-8 center-block row">
+                                    <ul class="index-chapters center">
+                                        {{ chapter_buttons() }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer hidden-xs hidden-sm col-md-1"></div>
+                        <div class="index-pages-links col-xs-12 row">
+                                <ul class="index-pages center">
+                                    {{ page_links() }}
+                                </ul>
+                            </div>
+                        </div>
+                        <!--
+                        <h1 class="text-center">
+                        <span class="text-accent">The State of</span>
+                        <strong>New York City's</strong>
+                        <em>Housing and Neighborhoods</em> in
+                        <strong>2014</strong>
+                        </h1>
+                        <p>For this year's report, we have put our most significant findings online. The full report is also available as a <a href="#">downloadable PDF</a>.</p>
+                        <p>The report is split into the following sections:</p>
+                        <ol class="toc">
+                            {% for category, articles in categories %}
+                                {% if category.level==0 %}
+                                    <li><a href="{{ SITEURL }}/{{ category.url }}#fromIntro">{{ category }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% for page in pages|selectattr("display_on_front_page") %}
+                                {#<li><pre>{{ page|debug|pprint }}</pre></li>#}
+                                <li><a href="{{ SITEURL }}/pages/{{ page.slug }}.html">{{ page.title }}</a></li>
+                            {% endfor %}
+                        </ol>-->
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+{% endblock main %}

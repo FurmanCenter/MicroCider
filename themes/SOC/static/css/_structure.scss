@@ -1,0 +1,412 @@
+/*
+
+Structure
+
+*/
+
+
+$navbar-height: 100px;
+
+.navbar-brand-title {
+    bottom: 20px;
+    position: absolute;
+}
+
+html, body {
+    height: 100%;
+    position: relative;
+    
+}
+
+/*************************
+        NAVS
+**************************/
+.navbar {
+    height: $navbar-height; /* NAVBAR HEIGHT */
+}
+.navbar-brand {
+    height: inherit;
+    padding: 0;
+}
+
+.navbar-brand-logo {
+    padding: 0;
+}
+.navbar-brand-logo img {
+    margin: 20px;
+    height: 60px; /* = NAVBAR HEIGHT - 2*margin */
+    width: 60px;
+}
+
+/* Section nav */
+.nav li a {
+}
+.navbar-nav-chapters {
+    margin-right: 30px;
+    height: $navbar-height;
+}
+.navbar-nav-chapters>li>a {
+    //width: 100px;
+    padding: 0;
+    margin: 0 10px;
+}
+.chapter-button img {
+    height: $navbar-height;
+    margin: 0 -30px;
+}
+
+.navbar-collapse.in li a {
+    width: 100%;
+    padding: 20px 10px;
+}
+#page-links-top-bar {
+    height: 100%;
+}
+#page-links-top-bar ul {
+    list-style: none;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+/**********************
+	LEFT BAR
+**********************/
+#section-nav {
+    position: fixed;
+    left: 0;
+    top: $navbar-height; /* = NAVBAR HEIGHT */
+    bottom: 0;
+    z-index: 10;
+    padding: 0;
+}
+#section-nav li,
+#section-nav li a {
+    width: 100%;
+}
+
+#section-nav .section-header ul {
+    display: none;
+    list-style-position: inside;
+}
+#section-nav .section-header.active ul {
+	display: block;
+}
+#section-nav .slide-header {
+	list-style: circle;
+}
+#section-nav .slide-header.active {
+	list-style: disc;
+}
+
+
+#page-links-left-bar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 10px;
+}
+#page-links-left-bar li a {
+    margin: 5px;
+    padding: 0;
+}
+
+
+/******************
+ABOUT PAGE
+*******************/
+#page-about ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#page-about ul ul {
+    font-style: italic;
+    margin-bottom: .5em;
+}
+#page-about li strong {
+    font-weight: normal;
+    font-size: 1.5em;
+}
+
+
+/*************************
+        SCROLLING
+************************/
+#right-bar {
+    position: fixed;
+    right: 0px;
+    top: 100px; /* NAVBAR HEIGHT */
+    bottom: 0px;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    padding: 0;
+    background-color: transparent;
+    right: 6px;
+}
+.prev-btn { top: 30px; }
+.next-btn { bottom: 30px; }
+
+
+.prev-chapter-label,
+.next-chapter-label {
+    height: 2em;
+}
+
+.prev-chapter-icon,
+.next-chapter-label {
+    float: left;
+}
+.next-chapter-icon,
+.prev-chapter-label {
+    float: right;
+}
+
+.btn-icon-container {
+    position: absolute;
+    right: 0px;
+    width: 100px;
+}
+
+.prev-chapter-icon,
+.next-chapter-icon {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.btn-icon-container p {
+    height: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.prev-btn span.glyphicon,
+.next-btn span.glyphicon {
+    display: block;
+}
+
+/*******************
+SOCIAL
+******************/
+#share-box {
+    position: absolute;
+    /* Centering hack */
+    top: 50%;
+    right: -3px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-color: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/************************
+    Index Page
+************************/
+ul.index-chapters {
+    list-style: none;
+    padding: 0;
+}
+ul.index-chapters li {
+}
+ul.index-chapters li a {
+}
+ul.index-chapters img {
+    margin: -30px auto;
+    width: 100%;
+    height: auto;
+}
+.index-chapters-container {
+    float: none;
+}
+.index-chapter-buttons {
+}
+
+.index-pages-links {
+    position: absolute;
+    bottom: 1em;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+
+}
+
+ul.index-pages {
+    display: block;
+    text-align: center;
+    width: 100%;
+
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+ul.index-pages li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.index-slide .navbar-brand-title {
+    position: absolute;
+    bottom: 14px;
+}
+.index-slide .index-text {
+    padding: 2em;
+}
+
+
+/***********************
+        MAIN CONTENT
+************************/
+#main {
+    position: relative;
+    top: 100px; /* = NAVBAR HEIGHT */
+    height: calc(100% - 100px); /* Subtract height of navbar */
+}
+
+#content {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    padding: 0;
+
+}
+
+.section-container {
+    display: inline;
+}
+article {
+    height: 100%;
+    position: relative;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+img.background {
+    background-size: cover;
+}
+
+.slide-container {
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .slide {
+        position: relative;
+        
+        /* Centering hack */
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+
+        min-height: 60%;
+        max-height: 90%;
+        overflow: hidden;
+        padding: 5%;
+    }
+    .slide-with-figure {
+    	min-height: 75%;
+    }
+    .slide-with-map, .slide-tall {
+    	min-height: 90%;
+        padding: 2%;
+    }    
+
+}
+
+    
+
+.slide-center {
+    float: none;
+    margin: 0 auto;
+}
+.slide-no-figure {
+    min-height: 30%;
+    text-align: center;
+}
+article.page .slide-no-figure {
+    text-align: left;
+    overflow: auto;
+}
+
+.slide-text-container {
+    overflow: auto;
+}
+
+.slide-text h1, .slide-text h2,
+.slide-text h3, .slide-text h4 {
+    margin-top: 0;
+}
+
+.slide-map-container {
+}
+.slide-map-container:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.slide-map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.slide-text-container.slide-left {
+    padding-right: 30px;
+}
+.slide-text-container.slide-top {
+	height: 30%;
+}
+.slide-figure-container > .slide-figure-bottom {
+	height: 70%;
+}
+
+
+
+
+/**********************
+ SMALL DEVICES
+************************/
+@media (max-width: 768px) {
+    article {
+        height: auto;
+        min-height: 100%;
+    }
+    .navbar-brand-title {
+        font-size: 12px;
+        line-height: 14px;
+        width: 50%;
+    }
+    .slide-container {
+        margin: 5% auto;
+    }
+
+
+    .scroll-down, .scroll-up {
+        display: none !important;
+    }
+    .prev-chapter, .next-chapter {
+        display: block !important;
+        position: static !important;
+        clear: both;
+        margin: 5% auto;
+    }
+}

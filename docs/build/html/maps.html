@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working with Maps &mdash; MicroCider 0.1beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MicroCider 0.1beta documentation" href="index.html"/>
+        <link rel="next" title="Making a New Microsite" href="new_microsite.html"/>
+        <link rel="prev" title="Making Figures" href="figures.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MicroCider
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to MicroCider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="need_to_know.html">Tools and Background Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Microsite Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soc_theme.html">The SOC Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Settings and Config Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Making Figures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with Maps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#converting-maps-to-geojson">Converting Maps to GeoJSON</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="new_microsite.html">Making a New Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">How to Publish Your Microsite</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MicroCider</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Working with Maps</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/maps.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-with-maps">
+<span id="id1"></span><h1>Working with Maps<a class="headerlink" href="#working-with-maps" title="Permalink to this headline">¶</a></h1>
+<p>MicroCider uses Highmaps to handle mapping. Note that Highmaps does things differently
+from other mapping libraries like Leaflet, so the way maps are specified does not translate
+well between the two approaches.</p>
+<div class="section" id="converting-maps-to-geojson">
+<h2>Converting Maps to GeoJSON<a class="headerlink" href="#converting-maps-to-geojson" title="Permalink to this headline">¶</a></h2>
+<p>Convert the File</p>
+<p>In GIS, export the shapefile. You may want to simplify it first, to make it smaller.</p>
+<p>Bundle all the output files into one zip file (the .shp, .shx, .dbf, etc.).</p>
+<p>Go to <a class="reference external" href="http://ogre.adc4gis.com/">http://ogre.adc4gis.com/</a></p>
+<p>Choose the zip file in the &#8220;Convert to GeoJSON&#8221; section.</p>
+<p>Leave the source SRS blank, but put &#8220;EPSG:2263&#8221; into the &#8220;Target SRS&#8221; field (this will reproject to NY state plane Long Island).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Alternatively, you can reproject in GIS, and then use the <a class="reference external" href="https://github.com/project-open-data/esri2open">ESRI2Open tools</a>) to output to geojson or topojson.</p>
+</div>
+<p>Whatever the method, the GeoJSON file that is created will have much more precision than we need, so we can make the file smaller by running it through this utility:</p>
+<blockquote>
+<div><a class="reference external" href="http://jsfiddle.net/highcharts/92oymdb7/">http://jsfiddle.net/highcharts/92oymdb7/</a></div></blockquote>
+<p>Select all the output from the ogre website and paste it into the left-hand box in the lower-right section of the fiddle. Then, hit &#8220;Optimize&#8221;. Select-all the text in the output box, and copy that.</p>
+<p>Paste into a new text file, and save as a .geojson file. You can use this file, but if you want to be able to use lat/long points with it, you need to add a field (see [<a class="reference external" href="http://www.highcharts.com/docs/maps/latlon">http://www.highcharts.com/docs/maps/latlon</a>]):</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="s2">&quot;hc-transform&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;crs&quot;</span><span class="p">:</span> <span class="s2">&quot;Your map projection in proj4 string format, as supported by pro4js&quot;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to get the proj4 string, go find the projection you want on [<a class="reference external" href="http://www.spatialreference.org/">http://www.spatialreference.org/</a>], and click the &#8220;Proj4&#8221; link (e.g. <a class="reference external" href="http://www.spatialreference.org/ref/epsg/2263/proj4/">http://www.spatialreference.org/ref/epsg/2263/proj4/</a>). Note that Proj4js will give you a similar result, but it will have extra text.</p>
+<p>Insert the &#8220;hc-transform&#8221; field after the <cite>{&#8220;type&#8221;:&#8221;FeatureCollection&#8221;,</cite> part, before the &#8220;crs&#8221; field. Here is the string to paste for NYC:
+<code class="docutils literal"><span class="pre">`javascript</span>
+<span class="pre">&quot;hc-transform&quot;:{&quot;default&quot;:{&quot;crs&quot;:&quot;+proj=lcc</span> <span class="pre">+lat_1=41.03333333333333</span> <span class="pre">+lat_2=40.66666666666666</span> <span class="pre">+lat_0=40.16666666666666</span> <span class="pre">+lon_0=-74</span> <span class="pre">+x_0=300000.0000000001</span> <span class="pre">+y_0=0</span> <span class="pre">+ellps=GRS80</span> <span class="pre">+datum=NAD83</span> <span class="pre">+to_meter=0.3048006096012192</span> <span class="pre">+no_defs&quot;}},</span>
+<span class="pre">`</span></code></p>
+<p>To check it all worked, copy and paste into this fiddle:
+<a class="reference external" href="http://jsfiddle.net/highcharts/xbzxfx2L/">http://jsfiddle.net/highcharts/xbzxfx2L/</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="new_microsite.html" class="btn btn-neutral float-right" title="Making a New Microsite" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="figures.html" class="btn btn-neutral" title="Making Figures" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, NYU Furman Center.
+      Last updated on Apr 10, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{#% from 'category.html' import add_script, scripts %#}
+{#% from 'macros.html' import insert_figure without context %#}
+<div class="slide slide-with-figure slide-with-figure-right slide-tall slide-center well row col-lg-10">
+<div class="slide-text-container slide-left col-md-4">
+  <div class="slide-text slide-text-left">
+    <h3 class="text slide-title {{ slide.title_class }}">{{ slide.title }}</h3>
+    <div class="text slide-content">{{ slide.content }}</div>
+    {#{ scripts|debug }#}
+  </div>
+  </div>
+  <div class="slide-figure-container slide-figure-right col-md-8">
+  <div id="{{ slide.slug }}" class="slide-figure">
+    {{ insert_figure(slide) }}
+  </div>
+  </div>
+</div>

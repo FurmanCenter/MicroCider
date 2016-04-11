@@ -1,0 +1,79 @@
+{############################
+page.html
+
+Template file for a "page", which we use, for example, for the about page.
+
+############################}
+
+{% extends "base.html" %}
+{% set article = page %}
+{% from 'macros.html' import chapter_buttons, social_links, page_links, print_slide, style_background with context %}
+
+{############################
+       LEFT BAR 
+#############################}
+{% block leftbar %}
+{# No leftbar #}
+{% endblock leftbar %}
+
+
+{############################
+       RIGHT BAR
+#############################}
+{% block rightbar %}
+  <div id="right-bar">
+    {{ social_links() }}
+  </div>
+{% endblock rightbar %}
+
+
+{############################
+       TOP NAVBAR
+#############################}
+{% block navbar_links %}
+  {{ chapter_buttons(page) }}
+  <li id="page-links-top-bar">
+    <ul>
+      {{ page_links() }}
+    </ul>
+  </li>
+{% endblock %}
+
+
+{############################
+#############################
+       MAIN CONTENT 
+#############################
+#############################}
+{% block title %}{{ page.title|striptags }}{% endblock %}
+
+{% block content %}
+<div id="content" class="col-xs-12">
+<article id="page-{{page.slug}}"
+        class="container-fluid {{ page.slug }} b-lazy page" 
+        {{ style_background(page.background) if page.background }} {#else 
+              style_background(default_bg.next()) }#} >
+      {# Prev links #}
+      {#{ prev_link(section, loop, section_loop, chapter) }#}
+      <div class="slide-container row col-md-12">
+        {{ print_slide(page) }}
+        {#% include "slide.html" %#}
+      </div>
+
+      {#{ next_link(section, loop, section_loop, chapter) }#}
+    </article>
+      {#{ print_section(page, [page]) }#}
+</div>
+{#{ super() }#}
+{#
+<div id="content" class="col-xs-12">
+    <h1>{{ page.title }}</h1>
+    <div id="map" style="width: 600px; height: 600px;"></div>
+
+    {{ page.content }}
+    {% if page.script %}
+    <script src="{{ SITEURL }}/figures/{{ page.script }}"></script>
+    
+     {% endif %}
+</div>#}
+{% endblock %}

@@ -1,0 +1,24 @@
+# This script syncs the local output directory with the directory
+# on the remote server (i.e. the server that will host the website).
+# Note that this is designed for a Windows machine with WinSCP.
+#
+#
+# This script is called with two variables from the command line:
+#
+# %1% (i.e. 1st parameter passed) = the username to log in to the SFTP site
+# %2% (i.e. 2nd parameter passed) = the password to log into the SFTP site
+# %3% (i.e. 3rd parameter passed) = the address of the SFTP server (e.g. an IP
+#									address; should come from your web host)
+# %4% (i.e. 4th parameter passed) = the destination path (i.e. the folder
+#									to save into)
+#
+# All parameters should be set correctly by the command in the fabfile, based
+# on the contents of the secretconf.py file
+
+#option batch abort
+#option confirm off
+
+open sftp://%1%:%2%@%3%
+
+synchronize remote output %4%
+exit

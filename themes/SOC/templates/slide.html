@@ -1,0 +1,67 @@
+{############################
+category.html
+
+Template file for a "category", which we use to group slides/articles into _sections_ and _chapters_.
+
+############################}
+
+{% from 'macros.html' import add_script, print_data, insert_figure without context %}
+
+{% from 'base.html' import script_list %}
+
+
+{% if not article.layout and not article.figure %}
+  {% include "slide-templates/%s.html" % DEFAULT_LAYOUT %}
+{% elif not article.layout %}
+  {% include "slide-templates/%s.html" % DEFAULT_FIGURE_LAYOUT %}
+{% else %}
+  {% include "slide-templates/%s.html" % article.layout %}
+{% endif %}
+
+{% if article and article.figure and ".JS" in article.figure.upper() %}
+
+    {#{ add_script(script_list, "%s/figures/%s" % (SITEURL, fig)) }#}
+    {% if article.mapdata %}
+      {% for mapdata in article.mapdata|string_list %}
+      <span id="{{ article.slug }}-mapdata-{{ loop.index }}" class="figure-data {{article.slug}}-mapdata">{{ SITEURL }}/data/{{ mapdata }}</span>
+      {#<script>
+        console.log("HAS MAP DATA");
+        var {{ article.slug }}_mapdata_url = "{{ SITEURL }}/data/{{ article.mapdata }}";
+      </script>#}
+      {% endfor %}
+    {% endif%}
+  <script>
+  {% for fig in article.figure|string_list %}
+    $(function() {
+      
+      $.cachedScript("{{ SITEURL }}/figures/{{ fig }}", { crossDomain: true }).done(function(script, textStatus) {
+        console.log("{{ article.slug }}", textStatus);
+      }).fail(function(jqxhr, settings, exception) {
+        console.log("FAIL {{ article.slug }}", jqxhr, settings);
+      });
+
+      {% if loop.last %}
+      $('#{{article.slug}}-figure-tabs a').click(function(e) {
+        console.log("Clicked button", e);
+        e.preventDefault();
+        $(this).tab('show');
+      });
+      {% endif %}
+    });
+  {% endfor %}
+  </script>
+{% endif %}
+
+
+{% if article and article.datatables %}
+  {{ print_data(article, DEFAULT_FIGURE_NOTES) }}
+{% endif %}
+
+<div class="photo-credit">
+{% if article and article.background_copyright %}
+Image &copy; {{ article.background_copyright }}
+{% else %}
+<h1 class="warning">NO COPYRIGHT</h1>
+{% endif %}
+</div>
+{#% endmacro %#}

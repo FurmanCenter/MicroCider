@@ -1,0 +1,65 @@
+{% set article_category = category %}
+
+{% if category.parent %}
+	{% set category = category.parent %}
+{% endif %}
+{% extends 'category.html' %}
+
+{#% from 'macros.html' import print_slide without context %#}
+
+{#{ print_slide(article) }#}
+{% block facebook_meta %}
+  <meta property="og:url" 
+        content="{{ SITEURL }}/{{ output_file }}" />
+  <meta property="og:type"
+        content="article" />
+  <meta property="og:title"
+        content="{{ article.name|striptags }} - {{ SITENAME|striptags }}" />
+  <meta property="og:description" 
+        content="{{ article.description|striptags }}" />
+  <meta property="og:image"
+        content="{{ SITEURL }}/images/figures/{{ article.url | replace('\\','/') | replace('/','_') }}.png" />
+{% endblock facebook_meta %}
+
+
+{% block rightbar %}
+  <div id="right-bar">
+    <button class="prev-btn btn">
+        <div class="prev-section">
+            <span id="prev-section-icon" class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+          </div>
+        <div class="prev-chapter hidden">
+        {% if category.prev_sibling %}
+          <a href="{{ SITEURL }}/{{ category.prev_sibling.url }}">
+              <span class="prev-chapter-icon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+        {% endif %}
+        </div>
+    </button>
+    {{ social_links() }}
+    <button class="next-btn btn">
+        <div class="next-section">
+            <span id="next-section-icon" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+        </div>
+        <div class="next-chapter hidden">
+        {% if category.next_sibling %}
+          <a href="{{ SITEURL }}/{{ category.next_sibling.url }}">
+              <span class="next-chapter-icon glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          </a>
+        {% endif %}
+        </div>
+    </button>
+  </div>
+{% endblock rightbar %}
+
+{% block content %}
+
+  {# Set default background image, in case background is not
+  specified in the markdown file #}
+  {% set default_bg = cycler(*DEFAULT_BACKGROUNDS) %}
+  
+    <div id="content" class="col-xs-12">
+      {{ print_section(category, [article], default_bg, full_width = false) }}
+    </div>
+
+{% endblock %}

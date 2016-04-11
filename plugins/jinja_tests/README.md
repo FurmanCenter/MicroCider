@@ -1,0 +1,1 @@
+A Pelican plugin that allows for adding custom Jinja tests

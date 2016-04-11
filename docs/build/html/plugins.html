@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plugins &mdash; MicroCider 0.1beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MicroCider 0.1beta documentation" href="index.html"/>
+        <link rel="next" title="Making Figures" href="figures.html"/>
+        <link rel="prev" title="Settings and Config Files" href="configs.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MicroCider
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to MicroCider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="need_to_know.html">Tools and Background Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Microsite Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soc_theme.html">The SOC Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Settings and Config Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Making Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps.html">Working with Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_microsite.html">Making a New Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">How to Publish Your Microsite</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MicroCider</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Plugins</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/plugins.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plugins">
+<span id="id1"></span><h1>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">category_meta.category_meta</span></code></td>
+<td>Copyright 2014, 2015 Zack Weinberg</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">ordered_categories.ordered_categories</span></code></td>
+<td>Copyright 2015, NYU Furman Center</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">soc_jinja2_filters</span></code></td>
+<td>This module includes Jinja2 filters used in the SOC theme, expanding the set of manipulations that can be performed within templates.</td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-assets.assets"></span><p id="category-meta">..... automodule:: category_meta.category_meta</p>
+<p id="ordered-categories">..... automodule:: ordered_categories.ordered_categories</p>
+<span class="target" id="module-data_import.data_import"></span><span class="target" id="module-jinja_tests.jinja_tests"></span><p>Add custom Jinja2 tests to Pelican.</p>
+<p>This plugin allows you to specify custom tests (i.e. functions that
+return True/False and can be used in Jinja2 templates)
+in the config files and then use them in your Jinja2 templates.</p>
+<p>Author: Brian Karfunkel (<a class="reference external" href="http://bkfunk.github.io">http://bkfunk.github.io</a>)</p>
+<dl class="function">
+<dt id="jinja_tests.jinja_tests.add_tests">
+<code class="descclassname">jinja_tests.jinja_tests.</code><code class="descname">add_tests</code><span class="sig-paren">(</span><em>generator</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jinja_tests/jinja_tests.html#add_tests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jinja_tests.jinja_tests.add_tests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the Jinja2 tests specified in the settings to the environment.</p>
+<p>In order add a test, we need to set the Jinja2 environment object&#8217;s
+<code class="docutils literal"><span class="pre">test</span></code> attribute. See the Jinja2 docs on 
+<a class="reference external" href="http://jinja.pocoo.org/docs/dev/api/#custom-tests">custom tests</a>.</p>
+<p>This function relies on a variable being set in the config files, e.g.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">filters</span>
+<span class="n">JINJA_TESTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;filepath&#39;</span><span class="p">:</span><span class="n">filters</span><span class="o">.</span><span class="n">is_filepath</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The above would, for example, allow testing to see if a string was a valid
+filepath:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">article</span><span class="o">.</span><span class="n">source</span><span class="o">|</span><span class="n">filepath</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>...would call <code class="docutils literal"><span class="pre">filters.is_filepath(article.source)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jinja_tests.jinja_tests.register">
+<code class="descclassname">jinja_tests.jinja_tests.</code><code class="descname">register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jinja_tests/jinja_tests.html#register"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jinja_tests.jinja_tests.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attaches the <a class="reference internal" href="#jinja_tests.jinja_tests.add_tests" title="jinja_tests.jinja_tests.add_tests"><code class="xref py py-func docutils literal"><span class="pre">add_tests()</span></code></a> function to the <code class="docutils literal"><span class="pre">generator_init</span></code> signal.</p>
+</dd></dl>
+
+<dl class="docutils">
+<dt>..... automodule:: soc_jinja2_filters</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">members:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="figures.html" class="btn btn-neutral float-right" title="Making Figures" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configs.html" class="btn btn-neutral" title="Settings and Config Files" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, NYU Furman Center.
+      Last updated on Apr 10, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

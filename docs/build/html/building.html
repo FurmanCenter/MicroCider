@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building a Microsite &mdash; MicroCider 0.1beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MicroCider 0.1beta documentation" href="index.html"/>
+        <link rel="next" title="How to Publish Your Microsite" href="publish.html"/>
+        <link rel="prev" title="Making a New Microsite" href="new_microsite.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MicroCider
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to MicroCider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="need_to_know.html">Tools and Background Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Microsite Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soc_theme.html">The SOC Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Settings and Config Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Making Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps.html">Working with Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_microsite.html">Making a New Microsite</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building a Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">How to Publish Your Microsite</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MicroCider</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Building a Microsite</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/building.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-fabfile">
+<span id="building-a-microsite"></span><h1>Building a Microsite<a class="headerlink" href="#module-fabfile" title="Permalink to this headline">¶</a></h1>
+<p>This fabfile defines methods for automated tasks, allowing
+for easier building, publishing, etc. of the pelican site.</p>
+<p>To specify the location of the site content, set the PATH option when invoking
+<code class="docutils literal"><span class="pre">fabric</span></code>, which will be passed on to Pelican, overriding the <code class="xref py py-data docutils literal"><span class="pre">pelicanconf.PATH</span></code>
+attribute in the config file.</p>
+<p>For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">fab</span> <span class="n">build</span> <span class="o">--</span><span class="nb">set</span><span class="o">=</span><span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;path/to/content\ escaping\ spaces/&quot;</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="fabfile.clean">
+<code class="descclassname">fabfile.</code><code class="descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the output directory and makes a new, empty one</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fabfile.build">
+<code class="descclassname">fabfile.</code><code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the site (locally) using the default local config file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fabfile.debug">
+<code class="descclassname">fabfile.</code><code class="descname">debug</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleans and then builds locally with the debug flag on, to show
+all debug messages</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fabfile.rebuild">
+<code class="descclassname">fabfile.</code><code class="descname">rebuild</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#rebuild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.rebuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear output directory, then build locally</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fabfile.regenerate">
+<code class="descclassname">fabfile.</code><code class="descname">regenerate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#regenerate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.regenerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-build whenever a file is saved; useful for local testing</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fabfile.serve">
+<code class="descclassname">fabfile.</code><code class="descname">serve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#serve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.serve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serve the output directory at <code class="docutils literal"><span class="pre">localhost:8000</span></code>. Use for local testing</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fabfile.reserve">
+<code class="descclassname">fabfile.</code><code class="descname">reserve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#reserve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.reserve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build then serve</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fabfile.preview">
+<code class="descclassname">fabfile.</code><code class="descname">preview</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#preview"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.preview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the site locally as if publishing to the server.
+Use this to see what the files would look like on the remote server,
+without actually changing the contents of the server. Note that, since
+resources are referred to by their URL on the server, rather than their
+file location, some things won&#8217;t load locally, or will load possibly
+unchanged versions from the live server.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fabfile.publish">
+<code class="descclassname">fabfile.</code><code class="descname">publish</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fabfile.html#publish"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fabfile.publish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Publish to website
+To call this, you either need to have SSH set up, or use the following
+options when invoking <code class="docutils literal"><span class="pre">fabric</span></code>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-I</span></kbd></td>
+<td>switch to have password entered initially, or</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>switch with the password.</td></tr>
+</tbody>
+</table>
+<p>For example:</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">fab</span> <span class="pre">publish</span> <span class="pre">-I</span></code></p>
+<blockquote>
+<div>Prompt for password first, though the password won&#8217;t actually be
+checked that it&#8217;s correct</div></blockquote>
+<p><code class="docutils literal"><span class="pre">fab</span> <span class="pre">publish</span> <span class="pre">-p</span> <span class="pre">mypassword</span></code></p>
+<blockquote>
+<div>Pass <code class="docutils literal"><span class="pre">mypassword</span></code> through to publish site without prompting
+(where actual password replaces <code class="docutils literal"><span class="pre">mypassword</span></code>)</div></blockquote>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This requires <a class="reference external" href="https://winscp.net/eng/download.php">winscp</a> to be
+downloaded for Windows machines, including the command-line utility</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This method calls the <code class="file docutils literal"><span class="pre">sync_output_to_remote.script</span></code> WinSCP
+script, which will actually sync the <code class="docutils literal"><span class="pre">output</span></code> directory with the
+<code class="xref py py-data docutils literal"><span class="pre">destpath</span></code> path on the remote server. <code class="xref py py-data docutils literal"><span class="pre">destpath</span></code> is set in
+the <code class="xref py py-mod docutils literal"><span class="pre">secretconf</span></code> config file.</p>
+</div>
+<p>TODO: Set up to work on OSX/Linux</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="publish.html" class="btn btn-neutral float-right" title="How to Publish Your Microsite" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="new_microsite.html" class="btn btn-neutral" title="Making a New Microsite" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, NYU Furman Center.
+      Last updated on Apr 10, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

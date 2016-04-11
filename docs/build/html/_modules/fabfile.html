@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fabfile &mdash; MicroCider 0.1beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MicroCider 0.1beta documentation" href="../index.html"/>
+        <link rel="up" title="Module code" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MicroCider
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to MicroCider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../need_to_know.html">Tools and Background Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Microsite Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../soc_theme.html">The SOC Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configs.html">Settings and Config Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Making Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maps.html">Working with Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../new_microsite.html">Making a New Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building a Microsite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publish.html">How to Publish Your Microsite</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">MicroCider</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      
+    <li>fabfile</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for fabfile</h1><div class="highlight"><pre>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This fabfile defines methods for automated tasks, allowing</span>
+<span class="sd">for easier building, publishing, etc. of the pelican site.</span>
+
+<span class="sd">To specify the location of the site content, set the PATH option when invoking</span>
+<span class="sd">``fabric``, which will be passed on to Pelican, overriding the :py:data:`pelicanconf.PATH`</span>
+<span class="sd">attribute in the config file.</span>
+
+<span class="sd">For example::</span>
+
+<span class="sd">    fab build --set=PATH=&quot;path/to/content\ escaping\ spaces/&quot;</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">fabric.contrib.project</span> <span class="kn">as</span> <span class="nn">project</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">SimpleHTTPServer</span>
+<span class="kn">import</span> <span class="nn">SocketServer</span>
+
+
+<span class="c1">#: Remote server configuration</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">secretconf</span> <span class="kn">import</span> <span class="n">production</span><span class="p">,</span> <span class="n">dest_path</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">secretconf_SAMPLE</span> <span class="kn">import</span> <span class="n">production</span><span class="p">,</span> <span class="n">dest_path</span>
+
+<span class="c1">#: Local path configuration (can be absolute or relative to fabfile)</span>
+<span class="c1">#: This is where the output from Pelican is saved</span>
+<span class="k">if</span> <span class="s1">&#39;deploy_path&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">env</span><span class="p">:</span>
+     <span class="n">env</span><span class="o">.</span><span class="n">deploy_path</span> <span class="o">=</span> <span class="s1">&#39;output&#39;</span>
+<span class="n">DEPLOY_PATH</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">deploy_path</span>
+
+
+
+
+<div class="viewcode-block" id="clean"><a class="viewcode-back" href="../building.html#fabfile.clean">[docs]</a><span class="k">def</span> <span class="nf">clean</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Deletes the output directory and makes a new, empty one&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">DEPLOY_PATH</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">local</span><span class="p">(</span><span class="s1">&#39;del /s /q {deploy_path}</span><span class="se">\\</span><span class="s1">*&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">env</span><span class="p">),</span> <span class="n">capture</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">local</span><span class="p">(</span><span class="s1">&#39;rm -R {deploy_path}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">env</span><span class="p">),</span> <span class="n">capture</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">local</span><span class="p">(</span><span class="s1">&#39;mkdir {deploy_path}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">env</span><span class="p">),</span> <span class="n">capture</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">local</span><span class="p">(</span><span class="s1">&#39;mkdir {deploy_path}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">env</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="build"><a class="viewcode-back" href="../building.html#fabfile.build">[docs]</a><span class="k">def</span> <span class="nf">build</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Builds the site (locally) using the default local config file&#39;&#39;&#39;</span>
+    <span class="n">local</span><span class="p">(</span><span class="s1">&#39;pelican -s pelicanconf.py {PATH}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PATH</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">&quot;PATH&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="debug"><a class="viewcode-back" href="../building.html#fabfile.debug">[docs]</a><span class="k">def</span> <span class="nf">debug</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Cleans and then builds locally with the debug flag on, to show</span>
+<span class="sd">    all debug messages&#39;&#39;&#39;</span>
+    <span class="n">clean</span><span class="p">()</span>
+    <span class="n">local</span><span class="p">(</span><span class="s1">&#39;pelican -D -s pelicanconf.py {PATH}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PATH</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">&quot;PATH&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="rebuild"><a class="viewcode-back" href="../building.html#fabfile.rebuild">[docs]</a><span class="k">def</span> <span class="nf">rebuild</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Clear output directory, then build locally&#39;&#39;&#39;</span>
+    <span class="n">clean</span><span class="p">()</span>
+    <span class="n">build</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="regenerate"><a class="viewcode-back" href="../building.html#fabfile.regenerate">[docs]</a><span class="k">def</span> <span class="nf">regenerate</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Re-build whenever a file is saved; useful for local testing&#39;&#39;&#39;</span>
+    <span class="n">local</span><span class="p">(</span><span class="s1">&#39;pelican -r -s pelicanconf.py {PATH}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PATH</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">&quot;PATH&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="serve"><a class="viewcode-back" href="../building.html#fabfile.serve">[docs]</a><span class="k">def</span> <span class="nf">serve</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Serve the output directory at ``localhost:8000``. Use for local testing&#39;&#39;&#39;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">deploy_path</span><span class="p">)</span>
+
+    <span class="n">PORT</span> <span class="o">=</span> <span class="mi">8000</span>
+    <span class="k">class</span> <span class="nc">AddressReuseTCPServer</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">):</span>
+        <span class="n">allow_reuse_address</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="n">server</span> <span class="o">=</span> <span class="n">AddressReuseTCPServer</span><span class="p">((</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">PORT</span><span class="p">),</span> <span class="n">SimpleHTTPServer</span><span class="o">.</span><span class="n">SimpleHTTPRequestHandler</span><span class="p">)</span>
+
+    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Serving on port {0} ...</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PORT</span><span class="p">))</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="reserve"><a class="viewcode-back" href="../building.html#fabfile.reserve">[docs]</a><span class="k">def</span> <span class="nf">reserve</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Build then serve&#39;&#39;&#39;</span>
+    <span class="n">build</span><span class="p">()</span>
+    <span class="n">serve</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="preview"><a class="viewcode-back" href="../building.html#fabfile.preview">[docs]</a><span class="k">def</span> <span class="nf">preview</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Build the site locally as if publishing to the server.</span>
+<span class="sd">    Use this to see what the files would look like on the remote server,</span>
+<span class="sd">    without actually changing the contents of the server. Note that, since</span>
+<span class="sd">    resources are referred to by their URL on the server, rather than their</span>
+<span class="sd">    file location, some things won&#39;t load locally, or will load possibly</span>
+<span class="sd">    unchanged versions from the live server.&#39;&#39;&#39;</span>
+    <span class="n">local</span><span class="p">(</span><span class="s1">&#39;pelican -s publishconf.py {PATH}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PATH</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">&quot;PATH&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)))</span></div>
+
+<span class="c1"># The @hosts decorator says that the publish command should always</span>
+<span class="c1"># use the production host (which is defined in the secretconf.py file)</span>
+<span class="nd">@hosts</span><span class="p">(</span><span class="n">production</span><span class="p">)</span>
+<div class="viewcode-block" id="publish"><a class="viewcode-back" href="../building.html#fabfile.publish">[docs]</a><span class="k">def</span> <span class="nf">publish</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Publish to website</span>
+<span class="sd">    To call this, you either need to have SSH set up, or use the following</span>
+<span class="sd">    options when invoking ``fabric``:</span>
+
+<span class="sd">    -I  switch to have password entered initially, or</span>
+<span class="sd">    -p  switch with the password.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        ``fab publish -I``</span>
+
+<span class="sd">            Prompt for password first, though the password won&#39;t actually be</span>
+<span class="sd">            checked that it&#39;s correct</span>
+
+<span class="sd">        ``fab publish -p mypassword``</span>
+
+<span class="sd">            Pass ``mypassword`` through to publish site without prompting</span>
+<span class="sd">            (where actual password replaces ``mypassword``)</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        This requires `winscp &lt;https://winscp.net/eng/download.php&gt;`_ to be</span>
+<span class="sd">        downloaded for Windows machines, including the command-line utility</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        This method calls the :file:`sync_output_to_remote.script` WinSCP</span>
+<span class="sd">        script, which will actually sync the ``output`` directory with the</span>
+<span class="sd">        :data:`destpath` path on the remote server. :data:`destpath` is set in</span>
+<span class="sd">        the :mod:`secretconf` config file.</span>
+
+<span class="sd">    TODO: Set up to work on OSX/Linux</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+     <span class="c1"># Run pelican using the publish config file</span>
+    <span class="c1">#local(&#39;pelican -s publishconf.py {PATH}&#39;.format(**env))</span>
+    <span class="n">preview</span><span class="p">()</span>
+
+    <span class="c1">################</span>
+    <span class="c1"># WINDOWS</span>
+    <span class="c1">################</span>
+    <span class="c1"># Then push the output directory to the remote server, using winscp.com</span>
+    <span class="c1"># which must be installed</span>
+    <span class="n">local</span><span class="p">(</span><span class="s1">&#39;winscp.com /script=sync_output_to_remote.script /parameter &#39;</span> \
+            <span class="s1">&#39;// {username} {password} {hostname} {destpath}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">username</span><span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">password</span><span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">password</span><span class="p">,</span>
+                        <span class="n">hostname</span><span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">destpath</span><span class="o">=</span> <span class="n">dest_path</span>
+                <span class="p">))</span></div>
+
+
+    <span class="c1">################</span>
+    <span class="c1"># OSX (probably Linux?)</span>
+    <span class="c1">################</span>
+    <span class="c1">#: TODO: Figure out how to do this on Mac</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, NYU Furman Center.
+      Last updated on Apr 10, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
